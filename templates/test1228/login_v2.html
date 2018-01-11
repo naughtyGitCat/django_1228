@@ -1,0 +1,28 @@
+{% extends 'test1228/base.html' %}
+{% load staticfiles %}
+{% block title %}登陆{% endblock %}
+{% block css %}<link href="{% static 'css/login.css' %}" rel="stylesheet"/>{% endblock %}<!-- rel 属性指示被链接的文档是一个样式表 -->
+
+{% if message %}
+    <div class="alert alert-warning">{{ message }}</div>
+{% endif %}
+{% block content %}
+    <div class="container">
+        <div class="col-md-4 col-md-offset-4">
+            <form class="form-login" action="/test1228/login/" method="post">
+                {% csrf_token %}
+                <h2 class="text-center">欢迎登陆</h2>
+                <div class="form-group">
+                    <label for="id_username">用户名：</label>
+                    <input type="text" name="username" class="form-control" id="id_username" placeholder="Username" autofocus required>
+                </div>
+                <div class="form-group">
+                    <label for="id_password">密码：</label>
+                     <input type="password" name="password" class="form-control" id="id_password" placeholder="Password" required>
+                </div>
+                <button type="reset" class="btn btn-default pull-left">花费一个圣晶石进行重置</button>
+                <button type="submit" class="btn btn-primary pull-right">提交</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

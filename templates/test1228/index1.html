@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test1228_index</title>
+</head>
+<body>
+{% if latest_hosts_list %}
+    <ul>
+    {% for hosts in latest_hosts_list %}
+        <li><a href="/test1228/{{ hosts.ZID }}/">{{ hosts.name }}</a> </li>
+    {%endfor %}
+    </ul>
+{% else %}
+    <p>No hosts are registered</p>
+{% endif %}
+
+
+</body>
+</html>
